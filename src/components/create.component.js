@@ -1,9 +1,9 @@
 // create.component.js
 
 import React, { Component } from "react";
+import axios from "axios";
 
 export default class Create extends Component {
-    
   constructor(props) {
     super(props);
     this.onChangePersonName = this.onChangePersonName.bind(this);
@@ -35,9 +35,14 @@ export default class Create extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    console.log(
-      `The values are ${this.state.person_name}, ${this.state.business_name}, and ${this.state.business_gst_number}`
-    );
+    const obj = {
+      person_name: this.state.person_name,
+      business_name: this.state.business_name,
+      business_gst_number: this.state.business_gst_number
+    };
+    axios
+      .post("http://localhost:4000/business/add", obj)
+      .then(res => console.log(res.data));
     this.setState({
       person_name: "",
       business_name: "",
@@ -49,18 +54,33 @@ export default class Create extends Component {
     return (
       <div style={{ marginTop: 10 }}>
         <h3>Add New Business</h3>
-        <form>
+        <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label>Add Person Name: </label>
-            <input type="text" className="form-control" />
+            <label>Person Name: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.person_name}
+              onChange={this.onChangePersonName}
+            />
           </div>
           <div className="form-group">
-            <label>Add Business Name: </label>
-            <input type="text" className="form-control" />
+            <label>Business Name: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.business_name}
+              onChange={this.onChangeBusinessName}
+            />
           </div>
           <div className="form-group">
-            <label>Add GST Number: </label>
-            <input type="text" className="form-control" />
+            <label>GST Number: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.business_gst_number}
+              onChange={this.onChangeGstNumber}
+            />
           </div>
           <div className="form-group">
             <input

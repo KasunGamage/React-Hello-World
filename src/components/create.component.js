@@ -42,7 +42,9 @@ export default class Create extends Component {
     };
     axios
       .post("http://localhost:4000/business/add", obj)
-      .then(res => console.log(res.data));
+      .then(res => {
+        console.log(res.data);
+      });
     this.setState({
       person_name: "",
       business_name: "",
@@ -52,44 +54,48 @@ export default class Create extends Component {
 
   render() {
     return (
-      <div style={{ marginTop: 10 }}>
-        <h3>Add New Business</h3>
+      <div
+        style={{
+          marginTop: 10
+        }}
+      >
+        <h3> Add New Item </h3>{" "}
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label>Person Name: </label>
+            <label> Item Name: </label>{" "}
             <input
               type="text"
               className="form-control"
               value={this.state.person_name}
               onChange={this.onChangePersonName}
-            />
-          </div>
+            />{" "}
+          </div>{" "}
           <div className="form-group">
-            <label>Business Name: </label>
+            <label> Item Description: </label>{" "}
             <input
               type="text"
               className="form-control"
               value={this.state.business_name}
               onChange={this.onChangeBusinessName}
-            />
-          </div>
+            />{" "}
+          </div>{" "}
           <div className="form-group">
-            <label>GST Number: </label>
+            <label> Quantity: </label>{" "}
             <input
               type="text"
               className="form-control"
               value={this.state.business_gst_number}
               onChange={this.onChangeGstNumber}
-            />
-          </div>
+            />{" "}
+          </div>{" "}
           <div className="form-group">
             <input
               type="submit"
-              value="Register Business"
+              value="Add New Item"
               className="btn btn-primary"
             />
-          </div>
-        </form>
+          </div>{" "}
+        </form>{" "}
       </div>
     );
   }

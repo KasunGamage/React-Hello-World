@@ -63,10 +63,10 @@ export default class Edit extends Component {
       render() {
         return (
             <div style={{ marginTop: 10 }}>
-                <h3 align="center">Update Business</h3>
+                <h3 align="center">Update Item</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Person Name:  </label>
+                        <label>Item Name:  </label>
                         <input 
                           type="text" 
                           className="form-control" 
@@ -75,7 +75,7 @@ export default class Edit extends Component {
                           />
                     </div>
                     <div className="form-group">
-                        <label>Business Name: </label>
+                        <label>Item Description: </label>
                         <input type="text" 
                           className="form-control"
                           value={this.state.business_name}
@@ -83,7 +83,7 @@ export default class Edit extends Component {
                           />
                     </div>
                     <div className="form-group">
-                        <label>GST Number: </label>
+                        <label>Quantity: </label>
                         <input type="text" 
                           className="form-control"
                           value={this.state.business_gst_number}
@@ -92,7 +92,7 @@ export default class Edit extends Component {
                     </div>
                     <div className="form-group">
                         <input type="submit" 
-                          value="Update Business" 
+                          value="Update Item" 
                           className="btn btn-primary"/>
                     </div>
                 </form>

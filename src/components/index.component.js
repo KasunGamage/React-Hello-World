@@ -28,13 +28,13 @@ export default class Index extends Component {
       render() {
         return (
           <div>
-            <h3 align="center">Business List</h3>
+            <h3 align="center">Item Dashboard</h3>
             <table className="table table-striped" style={{ marginTop: 20 }}>
               <thead>
                 <tr>
-                  <th>Person</th>
-                  <th>Business</th>
-                  <th>GST Number</th>
+                  <th>Item Name</th>
+                  <th>Item Description</th>
+                  <th>Quantity</th>
                   <th colSpan="2">Action</th>
                 </tr>
               </thead>
